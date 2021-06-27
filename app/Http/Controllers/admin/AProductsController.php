@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreProductRequest;
 
 
 class AProductsController extends Controller
@@ -22,13 +23,16 @@ class AProductsController extends Controller
         return view('admin.products.create');
     }
 
-    public function store_product(Request $request){
+    public function store_product(StoreProductRequest $request){
+
+        $validated = $request->validated();
+
         $product = new Product();
 
         $product->name = $request->input('name');
-        $product->slug = $request->input('slug');
-        $product->short_description = $request->input('short_des');
-        $product->description = $request->input('long_des');
+        $product->slug = Str::of($request->input('name'))->slug('-');
+        $product->short_description = $request->input('short_description');
+        $product->description = $request->input('description');
         $product->price = $request->input('price');
 
         $product->user_created_id = Auth::id();
