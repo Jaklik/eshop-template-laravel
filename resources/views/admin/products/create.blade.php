@@ -23,7 +23,7 @@
                     @enderror
                     <div class="form-group">
                         <label for="product_description">Popis</label>
-                        <textarea id="product_description"  class="form-control @error('price') is-invalid @enderror" name="description" rows="3">{{ old('description') }}</textarea>
+                        <textarea id="product_description"  class="form-control @error('description') is-invalid @enderror" name="description" rows="3">{{ old('description') }}</textarea>
                     </div>
                     @error('description')
                         <div class="alert alert-danger">{{ $message }}</div>
