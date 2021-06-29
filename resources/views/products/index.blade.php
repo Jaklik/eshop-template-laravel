@@ -13,7 +13,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                         </svg></button>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1577982787983-e07c6730f2d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2059&q=80" alt="Just a flower" class=" w-full   object-fill  rounded-2xl">
+                    @if ($product->thumbnail_image == null)
+                    <img src="{{ asset('storage/products/cover_image.jpeg') }}" alt="Just a flower" class=" w-full   object-fill  rounded-2xl">
+                    @else
+                    <img src="{{ asset('storage/'.$product->thumbnail_image) }}" alt="Just a flower" class=" w-full   object-fill  rounded-2xl">
+                    @endif
                     </div>
                     <div class="flex-auto justify-evenly">
                     <div class="flex flex-wrap ">
