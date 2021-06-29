@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Front end routes
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('product-overview');
+
 Auth::routes();
 
+
+// Admin routes
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {
     Route::get('/', [App\Http\Controllers\admin\HomeController::class, 'index'])->name('home');
