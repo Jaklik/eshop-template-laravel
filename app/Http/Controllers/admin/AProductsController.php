@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreProductRequest;
-
+use Illuminate\Support\Facades\Storage;
 
 class AProductsController extends Controller
 {
@@ -31,6 +31,10 @@ class AProductsController extends Controller
 
         $product->name = $request->input('name');
         $product->slug = Str::of($request->input('name'))->slug('-');
+        if ($request->file('thumbnail_image')){
+            $name = $request->file('thumbnail_image')->getClientOriginalName();
+            $product->thumbnail_image = $request->file('thumbnail_image')->storeAs('products', $name, 'public');
+        }
         $product->short_description = $request->input('short_description');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
