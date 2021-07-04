@@ -79,7 +79,7 @@ jobs:
 
       with:
 
-        host: ${{ secrets.HOST }}
+        url: ${{ secrets.HOST }}
 
         password: ${{ secrets.PASSWORD }}
 
