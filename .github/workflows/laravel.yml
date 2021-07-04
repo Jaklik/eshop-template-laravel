@@ -75,7 +75,7 @@ jobs:
 
     - name: Deployment
 
-      uses: appleboy/ssh-action@main
+      uses: appleboy/ssh-action@0.1.4
 
       with:
 
