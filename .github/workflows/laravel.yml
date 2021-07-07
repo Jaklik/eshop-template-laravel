@@ -83,9 +83,9 @@ jobs:
       run: npm install
       
     
-    - name: Compile assets for production
+#     - name: Compile assets for production
 
-      run: npm run production
+#       run: npm run production
       
     - name: Composer
       
