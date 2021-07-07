@@ -86,11 +86,10 @@ jobs:
 #     - name: Compile assets for production
 
 #       run: npm run production
+    
+       
     - name: Install dependencies
-      uses: php-actions/composer@v6
-      with:
-        command: composer install --optimize-autoloader --no-dev
-      
+      run: composer install --optimize-autoloader --no-dev
           
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
