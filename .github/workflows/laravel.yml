@@ -58,31 +58,16 @@ jobs:
       
       
   deploy:
-
-   runs-on: ubuntu-latest
-
-   steps:
-
-    - name: Checkout
- 
+    
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
       uses: actions/checkout@v2
-
-    - name: Deployment
-
-      uses: appleboy/ssh-action@master
-
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-
-        host: ftp://lebedova.inger.cz/flowcycles
-
-        password: 0W8jhLqEVS
-
+        server: ftp://lebedova.inger.cz/flowcycles
         username: lebedovain2
-
-        script: |
-
-          cd /flowcycles
-
-          git checkout -f 
-
-          git pull
+        password: 0W8jhLqEVS
