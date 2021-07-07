@@ -47,6 +47,10 @@ jobs:
     - name: Install NPM dependencies
 
       run: npm install
+      
+    - name: Install vendor
+
+      run: composer install
 
     - name: Compile assets for production
 
@@ -72,4 +76,4 @@ jobs:
         username: lebedovain2
         password: 0W8jhLqEVS
         method: ftp
-        server-dir: flowcycles
+        server-dir: flowcycles/
