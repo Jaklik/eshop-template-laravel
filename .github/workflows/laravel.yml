@@ -68,7 +68,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-        server: lebedova.inger.cz/flowcycles
+        server: lebedova.inger.cz
         username: lebedovain2
         password: 0W8jhLqEVS
         method: ftp
+        server-dir: flowcycles
